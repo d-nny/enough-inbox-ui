@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Inbox</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar with folders -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Folders</h2>
+        <div class="user-email" id="current-email">user@example.com</div>
+      </div>
+      <div class="folder-list" id="folder-list">
+        <!-- Folders will be populated here -->
+        <div class="folder-item selected" data-folder="Inbox">Inbox</div>
+        <div class="folder-item" data-folder="Sent">Sent</div>
+      </div>
+    </div>
+    
+    <!-- Email list panel -->
+    <div class="email-list-panel">
+      <div class="panel-header">
+        <h2 id="current-folder">Inbox</h2>
+      </div>
+      <div class="email-list" id="email-list">
+        <!-- Emails will be populated here -->
+        <div class="email-list-empty">Loading emails...</div>
+      </div>
+    </div>
+    
+    <!-- Email detail panel -->
+    <div class="email-detail-panel" id="email-detail-panel">
+      <div class="email-detail-empty">
+        <div class="empty-message">Select an email to view</div>
+      </div>
+      
+      <!-- Email detail content (hidden initially) -->
+      <div class="email-detail-content" id="email-detail-content" style="display: none;">
+        <div class="email-header">
+          <div class="email-subject" id="email-subject"></div>
+          <div class="email-meta">
+            <div class="email-from"><span>From:</span> <span id="email-from"></span></div>
+            <div class="email-to"><span>To:</span> <span id="email-to"></span></div>
+            <div class="email-cc" id="email-cc-container"><span>Cc:</span> <span id="email-cc"></span></div>
+            <div class="email-date"><span>Date:</span> <span id="email-date"></span></div>
+          </div>
+          <div class="email-actions">
+            <button id="reply-button" class="button">Reply</button>
+          </div>
+        </div>
+        <div class="email-body" id="email-body">
+          <!-- Email content will be displayed here -->
+        </div>
+      </div>
+      
+      <!-- Reply form (hidden initially) -->
+      <div class="reply-form" id="reply-form" style="display: none;">
+        <div class="form-header">
+          <h3>Reply</h3>
+        </div>
+        <div class="form-fields">
+          <div class="form-field">
+            <label for="reply-to">To:</label>
+            <input type="text" id="reply-to" name="to">
+          </div>
+          <div class="form-field">
+            <label for="reply-subject">Subject:</label>
+            <input type="text" id="reply-subject" name="subject">
+          </div>
+          <div class="form-field">
+            <label for="reply-body">Message:</label>
+            <textarea id="reply-body" name="body" rows="10"></textarea>
+          </div>
+          <div class="form-actions">
+            <button id="send-reply-button" class="button primary">Send</button>
+            <button id="cancel-reply-button" class="button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/folderView.js"></script>
+  <script src="js/emailList.js"></script>
+  <script src="js/emailView.js"></script>
+  <script src="js/replyForm.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

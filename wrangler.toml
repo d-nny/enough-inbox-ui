@@ -1,0 +1,15 @@
+name = "enough-inbox-ui"
+main = "src/index.js"
+compatibility_date = "2023-07-10"
+
+[[r2_buckets]]
+binding = "EMAIL_BUCKET"
+bucket_name = "enough-mail"
+
+[[services]]
+binding = "EMAIL_OUTBOUND"
+service = "enough-outbound-emails"
+
+# Website configuration
+[site]
+bucket = "./public"
